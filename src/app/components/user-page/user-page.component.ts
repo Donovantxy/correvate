@@ -3,12 +3,9 @@ import { PetStore, PetState } from './../../store/state/pet.state';
 import { GetPetFromLocalStore } from './../../store/actions/pet.actions';
 import { Store, Select } from '@ngxs/store';
 import { Pet } from './../../models/pet';
-import { PET_LIST } from './../../utils/constants';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PetService } from './../../services/pet.service';
-import { AuthService } from './../../services/auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 @Component({
