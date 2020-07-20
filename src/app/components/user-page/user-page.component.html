@@ -1,0 +1,24 @@
+<div class="pet">
+  <form [formGroup]="petForm" (ngSubmit)="submitPet()">
+    <mat-form-field appearance="outline" class="pet__name">
+      <mat-label>Pet name</mat-label>
+      <input formControlName="name" matInput placeholder="write pet name">
+      <mat-error *ngIf="petForm.get('name').errors">Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="pet__url-image">
+      <mat-label>Url Image</mat-label>
+      <input formControlName="url" matInput placeholder="write your pet's url image">
+      <mat-error *ngIf="petForm.get('url').errors?.required">Url images is required</mat-error>
+    </mat-form-field>
+    <div class="pet__submit" [ngClass]="{ 'pet__submit--adding': isAdding }">
+      <button type="submit" color="primary" [disabled]="!petForm.valid" mat-stroked-button>Add Pet</button>
+      <mat-spinner [diameter]="26" *ngIf="isAdding"></mat-spinner>
+    </div>
+  </form>
+</div>
+
+<ul *ngIf="petList.length">
+  <li *ngFor="let pet of petList">
+    <a [routerLink]="['/app/pet', pet.id]">{{pet.id}} - {{pet.name}}</a>
+  </li>
+</ul>

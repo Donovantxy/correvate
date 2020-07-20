@@ -1,0 +1,7 @@
+
+<div *ngIf="pet" class="container">
+  <h3><mat-icon (click)="goBackToUserPage()">arrow_back</mat-icon> <span>{{pet.name}}</span></h3>
+  <div class="picture">
+    <img [src]=pet.photoUrls[0]>
+  </div>
+</div>

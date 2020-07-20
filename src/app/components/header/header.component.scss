@@ -1,0 +1,48 @@
+@import '~src/style/colors';
+@import '~src/style/variables';
+@import '~src/style/breakpoints';
+
+:host {
+  margin-top: 70px;
+  display: flex;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  z-index: 20;
+  box-shadow: 0px -2px 20px -10px;
+  background: $white;
+  justify-content: center;
+  &__wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 12px;
+    &__user {
+      &::before {
+        $size: 24px;
+        content: "";
+        width: $size;
+        height: $size;
+        border-radius: $size;
+        border: 2px solid $theme;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
+    button {
+      height: 36px;
+    }
+    @include lg {
+      margin: 0;
+    }
+  }
+}

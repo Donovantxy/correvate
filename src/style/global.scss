@@ -1,0 +1,83 @@
+@import '~src/style/breakpoints';
+@import '~src/style/variables';
+@import '~src/style/colors';
+
+html, body { height: 100%; }
+body {
+  font-size: 62.5%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 10px $gap 20px;
+  display: flex;
+  @include lg {
+    max-width: $max-width;
+    margin: 10px auto 20px;
+  }
+  ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+    li {
+      padding:0;
+      margin: 0;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+app-root {
+  font-size: $fn;
+}
+
+.mat-form-field-appearance-outline {
+  &.mat-focused {
+    .mat-form-field-outline-thick {
+      color: $theme;
+    }
+  }
+}
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+  color: $theme;
+}
+.mat-button.mat-primary .mat-button-focus-overlay,
+.mat-icon-button.mat-primary .mat-button-focus-overlay,
+.mat-stroked-button.mat-primary .mat-button-focus-overlay {
+  background-color: $theme;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $theme;
+}
+
+form {
+  font-size: $fn;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  width: 100%;
+  justify-content: space-between;
+  .mat-form-field {
+    width: 100%;
+    &.login__age,
+    &.login__score{
+      width: 45%;
+      @include smx-max {
+        width: 100%;
+      }
+    }
+    ::ng-deep {
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+      .mat-form-field-subscript-wrapper {
+        position: relative;
+      }
+    }
+  }
+}

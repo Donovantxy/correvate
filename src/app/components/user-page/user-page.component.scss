@@ -1,0 +1,75 @@
+@import '~src/style/breakpoints';
+@import '~src/style/variables';
+@import '~src/style/colors';
+
+
+:host {
+  width: 100%;
+}
+
+.user-page {
+  display: flex;
+  justify-content: center;
+  ul {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    max-width: 400px;
+    li {
+      padding: 10px;
+      margin: 10px 0;
+      background: #ededed;
+      border-radius: 5px;
+    }
+  }
+}
+
+.pet {
+  @include sm {
+    form {
+      max-width: none;
+    }
+    &__name {
+      max-width: 250px;
+      margin-right: 20px;
+    }
+    &__url-image {
+      max-width: 700px;
+    }
+  }
+  &__submit{
+    height: 36px;
+    flex: 1 0;
+    margin-top: 5px;
+    display: flex;
+    position: relative;
+    button {
+      flex: 1;
+    }
+    mat-spinner {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+ul {
+  display: flex;
+  margin: 30px 0;
+  li {
+    cursor: pointer;
+    margin-right: 10px;
+    border: 2px solid $theme;
+    border-radius: 100px;
+    padding: 8px;
+    background: $white;
+    transition: background .5s;
+    &:hover {
+      background: lighten($theme, 50%);
+    }
+  }
+}

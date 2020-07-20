@@ -1,0 +1,25 @@
+<h2>Correvate</h2>
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field appearance="outline" class="login__firstname">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput placeholder="write your username">
+      <mat-error *ngIf="loginForm.get('username').errors">Username is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="login__email">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput placeholder="write your email">
+      <mat-error *ngIf="loginForm.get('email').errors?.required">Email is required</mat-error>
+      <mat-error *ngIf="loginForm.get('email').errors?.pattern">Incorrect email format</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="login__password">
+      <mat-label>Password</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="write your password">
+      <mat-error *ngIf="loginForm.get('password').errors">{{passowrdErrMsg}}</mat-error>
+    </mat-form-field>
+    <div class="login__submit" [ngClass]="{ 'login__submit--logging': isLogging }">
+      <button type="submit" color="primary" [disabled]="!loginForm.valid" mat-stroked-button>Login</button>
+      <mat-spinner [diameter]="26" *ngIf="isLogging"></mat-spinner>
+    </div>
+  </form>
+</div>
